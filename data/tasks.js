@@ -1,3 +1,4 @@
+//the hardcoded array
 let data = [
   {
     id:"1",
@@ -16,6 +17,7 @@ let data = [
   },
 ];
 
+//a class has functions to manipulate the data
 class handleData {
   alreadExist = (id) => {
     for (let i = 0; i < data.length; i++) {
@@ -25,9 +27,12 @@ class handleData {
     }
     return false;
   };
+  //function to return the data
   get = () => {
     return data;
   };
+
+  //add new item to the array
   add = (id, title, description) => {
     if (!this.alreadExist(id)) {
       data.push({
@@ -41,6 +46,7 @@ class handleData {
     }
   };
 
+  //edit the item(task)
   edit = (id, title, description) => {
     for (let i = 0; i < data.length; i++) {
       if (data[i].id === id) {
@@ -53,6 +59,7 @@ class handleData {
     return false;
   };
 
+  //delete a task
   del = (id) => {
     for (let i = 0; i < data.length; i++) {
       if (data[i].id === id) {
@@ -63,6 +70,7 @@ class handleData {
     return false;
   };
 
+  //search for a task given the filter(title or description)
   search = (searchMethod, searchValue) => {
     let searched = [];
 
